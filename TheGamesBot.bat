@@ -1,1 +1,0 @@
-start cmd.exe /k "python C:\Users\rioh7\Documents\Discord\scripts\the_games_bot.py"
