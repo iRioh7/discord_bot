@@ -5,6 +5,7 @@ import random
 import common
 
 
+
 client = discord.Client( )
 @client.event
 async def on_ready( ):
