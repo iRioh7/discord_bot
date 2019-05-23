@@ -15,16 +15,23 @@ async def on_ready( ):
 
 @client.event
 async def on_message( message ):
-	if message.content.startswith( '!thisisgreat' ):
-		await client.send_message( message.channel, 'Yeah!' )
 
-	elif message.content.startswith( '!flip_coin' ):
-		flip = random.choice( [ 'Heads', 'Tails' ] )
-		await client.send_message( message.channel, flip )
+	#check if this is an actual command
+	if message.content.startswith('!'):
 
-	elif message.content.startswith( '!dice_roll' ):
-		print( message )
-		await client.send_message( message.channel, common.dice_roll( message.content[10: ] ) )
+		command = message.content[1:]
+		command = command.lower()
+
+		if command.startswith( 'thisisgreat' ):
+			await message.channel.send( 'Yeah!' )
+
+		elif command.startswith( 'flip_coin' ):
+			flip = random.choice( [ 'Heads', 'Tails' ] )
+			await message.channel.send( flip )
+
+		elif command.startswith( 'dice_roll' ):
+			#print( message )
+			await message.channel.send( common.dice_roll( command.split()[1] ) )
 
 
 
