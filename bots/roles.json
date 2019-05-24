@@ -1,0 +1,9 @@
+{
+   "roles": [
+      {
+         "role": "BotTest",
+         "description": "test",
+         "emoji": "sad"
+      }
+   ]
+}
