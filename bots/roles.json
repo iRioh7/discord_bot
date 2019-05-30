@@ -1,9 +1,22 @@
 {
    "roles": [
       {
-         "role": "BotTest",
+         "description": "Overwatch chat",
+         "emoji": "ohoho",
+         "id": 583730406805864453,
+         "role": "The Cavalry"
+      },
+      {
+         "description": "Kingdom Hearts chat",
+         "emoji": "hsora",
+         "id": 583730408236253226,
+         "role": "Kingdom Hearts"
+      },
+      {
          "description": "test",
-         "emoji": "sad"
+         "emoji": "sad",
+         "id": 583730410174021652,
+         "role": "BotTest"
       }
    ]
 }
