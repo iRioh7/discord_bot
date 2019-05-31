@@ -11,47 +11,42 @@
       {
          "role": "Black Desert",
          "description": "Black Desert Online chat",
-         "emoji": ""
+         "emoji": "irioh_sombra"
       },
       {
          "role": "Mobas",
          "description": "Chat about your favorite mobas",
-         "emoji": ""
+         "emoji": "rawr"
       },
       {
          "role": "Space Engineers",
          "description": "Building... in space",
-         "emoji": ""
+         "emoji": "U+1F680"
       },
       {
          "role": "Destiny2",
          "description": "It's your Destiny!",
-         "emoji": ""
+         "emoji": "U+1F47E"
       },
       {
          "role": "Rocket League",
          "description": "Car soccer #futbol",
-         "emoji": ""
+         "emoji": "U+1F697"
       },
       {
          "role": "Smash",
          "description": "Not what joe thinks it means",
-         "emoji": ""
+         "emoji": "plove"
       },
       {
          "role": "Apex",
          "description": "Titanfall shooterman",
-         "emoji": ""
-      },
-      {
-         "role": "Avenger",
-         "description": "Spoilers",
-         "emoji": ""
+         "emoji": "hacked"
       },
       {
          "role": "You're a wizard",
          "description": "Harry",
-         "emoji": ""
+         "emoji": "U+2728"
       },
       {
          "description": "test",

@@ -48,34 +48,34 @@ async def on_message( message ):
 @client.event
 async def on_raw_reaction_add( payload ):
 
-	#print("what is a payload")
-	member = get_member_by_user_id(payload.user_id)
-	# channel = client.get_channel(payload.channel_id)
-	# message = discord.utils.get(client.messages, id = payload.message_id)
+	member = get_member_by_user_id( payload.user_id )
+
 	if member.bot == False:
-		with open('roles.json') as json_file:
-			data = json.load(json_file)
+		with open( 'roles.json' ) as json_file:
+			data = json.load( json_file )
 			for i in data['roles']:
 				if i['id'] == payload.message_id:
-					role_obj = get_role_obj(i['role'])
-					await member_assign_role(member, role_obj)
+					role_obj = get_role_obj( i['role'] )
+					await member_assign_role( member, role_obj )
+					dm_message = "you have been added to the \"{}\" role in The_Games3 server".format( role_obj.name )
+					await send_member_dm( member, dm_message)
 					break
 
 
 @client.event
 async def on_raw_reaction_remove( payload ):
 
-	#print("what is a payload")
-	member = get_member_by_user_id(payload.user_id)
-	# channel = client.get_channel(payload.channel_id)
-	# message = discord.utils.get(client.messages, id = payload.message_id)
+	member = get_member_by_user_id( payload.user_id )
+
 	if member.bot == False:
-		with open('roles.json') as json_file:
-			data = json.load(json_file)
+		with open( 'roles.json' ) as json_file:
+			data = json.load( json_file )
 			for i in data['roles']:
 				if i['id'] == payload.message_id:
-					role_obj = get_role_obj(i['role'])
-					await member_remove_role(member, role_obj)
+					role_obj = get_role_obj( i['role'] )
+					await member_remove_role( member, role_obj )
+					dm_message = "you have been removed from the \"{}\" role in The_Games3 server".format( role_obj.name )
+					await send_member_dm( member, dm_message)
 					break
 
 
@@ -101,8 +101,13 @@ def member_has_role( member, role ):
 	return False
 
 
-def send_member_dm( member, message ):
-	print('thing')
+async def send_member_dm( member, message ):
+	dm_channel = member.dm_channel
+	if dm_channel == None:
+		await member.create_dm()
+		dm_channel = member.dm_channel
+	await dm_channel.send( message )
+	
 
 def get_role_obj( role ):
 	guild_obj = client.guilds[0]
@@ -117,7 +122,7 @@ def get_emoji_obj( emoji ):
 		if x.name.lower() == emoji.lower():
 			return x
 
-	return None
+	return emoji
 
 
 async def show_roles( message ):
@@ -127,9 +132,9 @@ async def show_roles( message ):
 		for i in data['roles']:
 			role_obj = get_role_obj(i['role'])
 			if role_obj != None:
-				output = '{}\n{}\n'.format(role_obj.mention, i['description'])
-				msg = await message.channel.send( output )
 				emoji = get_emoji_obj(i['emoji'])
+				output = 'React with {} to be assigned {}\n{}\n'.format(emoji,role_obj.mention, i['description'])
+				msg = await message.channel.send( output )
 				await msg.add_reaction(emoji)
 				#save the message ID to the roles.json file
 				i['id'] = msg.id
