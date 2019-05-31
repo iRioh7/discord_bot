@@ -1,4 +1,4 @@
-{
+      {
          "role": "The Cavalry",
          "description": "Overwatch chat",
          "emoji": "ohoho"
@@ -53,3 +53,9 @@
          "description": "Harry",
          "emoji": ""
       },
+      {
+         "description": "test",
+         "emoji": "sad",
+         "id": 583730410174021652,
+         "role": "BotTest"
+      }
