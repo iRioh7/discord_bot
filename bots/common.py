@@ -2,6 +2,8 @@
 Common comands used by the bot
 """
 import random
+import re
+import string
 
 def dice_roll( message ):
     rand_int = [ ]
@@ -13,3 +15,11 @@ def dice_roll( message ):
         rand_int.append( random.randint( 0, dice_type ) )
     
     return str( rand_int )
+
+
+def ope_finder( message ):
+    ope = re.findall( r'(ope)', message, re.I )
+    if ope:
+        return True
+    else:
+        return False
