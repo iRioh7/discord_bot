@@ -42,8 +42,11 @@ async def on_message( message ):
 			await message.channel.send( flip )
 
 		elif command.startswith( 'dice_roll' ):
-			#print( message )
 			await message.channel.send( common.dice_roll( command.split()[1] ) )
+
+	if common.ope_finder( message.content ):
+		emoji = get_emoji_obj( 'OPE' )
+		await message.add_reaction( emoji )
 
 @client.event
 async def on_raw_reaction_add( payload ):

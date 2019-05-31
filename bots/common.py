@@ -18,8 +18,8 @@ def dice_roll( message ):
 
 
 def ope_finder( message ):
-    ope = re.findall( r'(ope)\w+', message, re.I )
+    ope = re.findall( r'(ope)', message, re.I )
     if ope:
-        print( 'Found.' )
+        return True
     else:
-        print( "There's something very wrong!" )
+        return False
