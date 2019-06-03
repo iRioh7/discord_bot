@@ -1,0 +1,10 @@
+{
+   "roles": [
+      {
+         "description": "test",
+         "emoji": "ohoho",
+         "id": 584537220027908333,
+         "role": "BotTest"
+      }
+   ]
+}
